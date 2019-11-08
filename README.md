@@ -40,11 +40,17 @@ Demonstrate your understanding of this week's concepts by answering the followin
 
 - [ ] Explain the difference between `Relational Databases` and `SQL`.
 
+  A relational database is a type of digital database that uses tables to organize data, with the ability to relate rows in the tables to rows in other tables.
+  SQL is a type of language for interacting with a relational database via a relational database management system.
+
 - [ ] Why do tables need a `primary key`?
+  Primary keys are used for identifying specific entries/rows in a table. They can be used by other tables that use foreign keys to relate to them.
 
 - [ ] What is the name given to a table column that references the primary key on another table.
+  Foreign key
 
 - [ ] What do we need in order to have a _many to many_ relationship between two tables.
+  A third table, containing foreign keys corresponding to each of the two tables.
 
 ## Minimum Viable Product
 
