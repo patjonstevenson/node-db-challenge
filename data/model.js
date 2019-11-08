@@ -27,12 +27,12 @@ const model = {
     },
 
     getTasks: () => {
-        const tasks = db('tasks').select('id', 'name', 'description', 'completed');
+        const tasks = db('tasks').select('id', 'description', 'completed');
         const newTasks = tasks.map(task => ({
             ...task,
             completed: task.completed ? true : false
         }));
-        return newTasks;
+        return tasks;
     }
 };
 

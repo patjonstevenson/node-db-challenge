@@ -4,7 +4,7 @@ const router = require('express').Router();
 
 router.get('/resources', async (req, res) => {
     try {
-        const resources = db.getResources();
+        const resources = await db.getResources();
         res.status(200).json(resources);
     } catch (error) {
         console.log(error);
@@ -12,9 +12,17 @@ router.get('/resources', async (req, res) => {
     }
 });
 
+router.post('/resources', async (req, res) => {
+    try {
+        const resource = await db.addResource(resource);
+    } catch (error) {
+        res.status(500).json({ message: "Internal server error while making post", error });
+    }
+})
+
 router.get('/projects', async (req, res) => {
     try {
-        const projects = db.getProjects();
+        const projects = await db.getProjects();
         res.status(200).json(projects);
     } catch (error) {
         res.status(500).json({ message: "Internal server error when retrieving projects", error });
@@ -23,7 +31,7 @@ router.get('/projects', async (req, res) => {
 
 router.get('/tasks', async (req, res) => {
     try {
-        const tasks = db.getTasks();
+        const tasks = await db.getTasks();
         res.status(200).json(tasks);
     } catch (error) {
         res.status(500).json({ message: "Internal server error when retrieving tasks", error });
