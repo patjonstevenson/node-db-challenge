@@ -18,6 +18,7 @@ router.post('/resources', async (req, res) => {
     }
     try {
         const resource = await db.addResource(req.body);
+        res.status(201).json({ resource });
     } catch (error) {
         console.log(error);
         res.status(500).json({ message: "Internal server error while making post", error });
@@ -45,6 +46,7 @@ router.post('/projects', async (req, res) => {
 
     try {
         const project = await db.addProject(newProject);
+        res.status(201).json({ project });
     } catch (error) {
         console.log(error);
         res.status(500).json({ message: "Internal server error while making post", error });
@@ -66,6 +68,7 @@ router.post('/tasks', async (req, res) => {
     }
     try {
         const task = await db.addTask(req.body, req.body.project_id);
+        res.status(201).json({ task });
     } catch (error) {
         console.log(error);
         res.status(500).json({ message: "Internal server error while making post", error });
