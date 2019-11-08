@@ -65,7 +65,7 @@ router.post('/tasks', async (req, res) => {
         res.status(400).json({ message: "Must provide project id" });
     }
     try {
-        const task = await db.addTask(req.body);
+        const task = await db.addTask(req.body, req.body.project_id);
     } catch (error) {
         console.log(error);
         res.status(500).json({ message: "Internal server error while making post", error });
