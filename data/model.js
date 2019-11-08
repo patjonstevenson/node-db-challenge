@@ -32,7 +32,7 @@ const model = {
             ...task,
             completed: task.completed ? true : false
         }));
-        return tasks;
+        return newTasks;
     }
 };
 
