@@ -4,14 +4,19 @@ exports.up = function (knex) {
         .createTable("projects", tbl => {
             tbl.increments();
             tbl.string('name', 255).notNullable();
+            tbl.string('description', 1048);
+            tbl.integer('completed').notNullable(); // 0 or 1
         })
         .createTable("resources", tbl => {
             tbl.increments();
-            tbl.string('name', 255).notNullable();
+            tbl.string('name', 255).notNullable().unique();
+            tbl.string('description', 1048);
         })
         .createTable("tasks", tbl => {
             tbl.increments();
             tbl.string('description', 1048).notNullable();
+            tbl.string('notes', 1048);
+            tbl.integer('completed').notNullable(); // 0 or 1
             tbl
                 .integer('project_id')
                 .unsigned()
